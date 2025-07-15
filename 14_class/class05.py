@@ -7,19 +7,25 @@ class Account:
     def __init__(self, owner, balance = 0):
         self.owner = owner
         self.balance  = balance
-    def deposit(self, a):
-        if a > 0:
-            self.balance += a
-            print(f"입금 후 잔액은 {self.balance}입니다")
+        print(f"{self.owner}의 계좌가 개설되었습니다. 잔액 :{self.balance}")
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"{amount}원 입금되었습니다. 현재 잔액 {self.balance}원")
         else :
-            print("0원 이상 입금하시오.")
-    def withdraw(self, b):
-        if b <= self.balance:
-            self.balance -= b
-            print(f"출금 후 잔액은 {self.balance}입니다")
+            print("입금액은 0보다 커야 합니다. 현재 잔액 :{self.balance}")
+
+    def withdraw(self, amount):
+        if amount <=0:
+            print("출금액은 0보다 커야 합니다.")
+        elif amount <= self.balance:
+            self.balance -= amount
+            print(f"{amount}원 출금되었습니다. 현재 잔액 : {self.balance} 원")
         else:
-            print("잔액을 초과하는 금액은 출금할 수 없습니다")
+            print(f"잔액이 부족합니다. 현재 잔액 :{self.balance}")
+
 account1 = Account("sujin")
 
 account1.deposit(40000)
-account1.withdraw(50000)
+account1.withdraw(5000)
