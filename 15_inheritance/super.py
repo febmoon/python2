@@ -69,3 +69,4 @@ manager1.assign_task("새로운 프로젝트 착수")
 # git add .
 # git commi -m "inheritance
 # git push origin main
+
