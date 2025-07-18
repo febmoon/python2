@@ -135,16 +135,16 @@ class 예외클래스명(Exception):
 # result 변수에 해당 키의 값을 넣음
 # 예외처리
 # #-> 해당 키가 존재하지 않을 때 "KeyError"처리 :"해당 키는 존재하지 않습니다." 출력
-# 숫자가 아닌 문자를 입력했을 때 " ValueError"ㅊ ㅓ리 : 숫자를 입력해 주세요." 출력
+# 숫자가 아닌 문자를 입력했을 때 " ValueError" 처리 : 숫자를 입력해 주세요." 출력
 # 정상적으로 실행된다면 해당 키의 값을 넣어둔 result 출력
 # 마지막은 항상 " 완료!!"를 출력
 
 
 
 try:
-    key = int(input("딕셔너리 키를 입력하시오."))
-    dictionary = {3: "value"}
-    result = dictionary[key]
+    key = int(input("딕셔너리 키 숫자로 입력하시오.")) #ValueError가 발생할 수 있는 코드 - int 형변환할때 발생하는 에러임을 기억하자!
+    dictionary = {1 : "APPLE", 2: "BANANA"} #얘는 에러가 발생하는 코드가 아니니까 밖에 있어도 상관없다
+    result = dictionary[key] # KeyError가 발생할 수 있는 코드
 except KeyError:
     print("해당 키는 존재하지 않습니다.")
 except ValueError:
