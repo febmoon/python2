@@ -61,7 +61,13 @@ def battle(player, monster):
         # 플레이어가 몬스터를 때려잡은 경우
         if monster.hp<= 0:
             print(f"{monster.name}을/를 처치했습니다.")
-            # 배틀 보상
+            exp_reward_multiple = random.uniform(0.9,1.1) # uniform 소수의 범위를 지정하고 거기 안에서 난수를 발생시킨다
+            gold_reward_multiple = random.uniform(0.9,1.1)
+            exp_reward = int(monster.exp_reward * exp_reward_multiple)
+            gold_reward = int(monster.gold_reward * gold_reward_multiple)
+            print(f"경험치 - {exp_reward},골드 -{gold_reward} 획득!\n")
+            player.gain_exp(exp_reward)
+            player.gold += gold_reward
             # 몬스터의 데이터와 플레이어의 데이터 초기화
             monster.hp = monster.max_hp
             player.hp = player.max_hp
@@ -78,7 +84,9 @@ def battle(player, monster):
         if player.hp <=0:
             print("패배했습니다. 게임 오버!")
             # 플레이어가 소지하고 있던 아이템을 초기화
+            player.hp = player.max_hp #플레이어 초기화 - 다시 살아나면 피가 차야하니까
+            player.mp = player.max_mp
             break
 
-        # 마나 회복 시스템
+        # 마나회복시스템
 

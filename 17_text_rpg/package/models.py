@@ -38,8 +38,26 @@ class Player:
     - 인스턴스 메서드 -> 우리가 기본적으로 알고 있는 메서드 ex) car.drive(), 그냥 drive()이렇게는 쓸 수 없다
     - 스태틱 메서드 -> 클래스 내에 유틸성 메서드, 즉 인스턴스나 클래스의 속성에 접근할 수 없음
     - 클래스 메서드 -> 인스턴스를 생성하지 않고 클래스에 직접적으로 접근함
-    
     '''
+
+    def gain_exp(self,amount):
+        self.exp += amount
+        if self.exp >= self.max_exp:
+            left_amount = self.exp - self.max_exp
+            self.exp = 0
+            self.level_up(left_amount)
+
+    def level_up(self, amount):
+        self.level +=1
+        self.attack +=5
+        self.max_hp +=10
+        self.max_mp +=10
+        self.hp = self.max_hp
+        self.mp = self.max_mp
+        self.exp += amount
+        self.max_exp = int(self.max_exp *1.5)
+        print(f"레벨업! {self.level}레벨이 되었습니다.\n공격력+5\n최대 HP+10\n최대 MP+10")
+
 class Monster:
     def __init__(self,name,max_hp, attack, exp_reward, gold_reward):
         self.name = name
