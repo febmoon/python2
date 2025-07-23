@@ -1,9 +1,6 @@
 from .models import Monster
 
-
-
-
-shop_item_list =[
+shop_item_list = [
     {"name": "도란의 검", "attack": 5, "hp": 0, "mp": 0, "cri_luk": 0, "price": 50},
     {"name": "롱소드", "attack": 10, "hp": 0, "mp": 0, "cri_luk": 0, "price": 80},
     {"name": "민첩성의 망토", "attack": 0, "hp": 0, "mp": 0, "cri_luk": 10, "price": 60},
